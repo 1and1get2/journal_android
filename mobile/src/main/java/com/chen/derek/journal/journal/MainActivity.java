@@ -51,6 +51,7 @@ public class MainActivity extends ActionBarActivity
 
 //      initialize Facebook SDK
         FacebookSdk.sdkInitialize(getApplicationContext());
+
     }
 
     @Override
