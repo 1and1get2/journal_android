@@ -4,6 +4,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.0"
+    publishNonDefault true
 
     defaultConfig {
         applicationId "com.chen.derek.journal.journal"
@@ -12,7 +13,19 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    signingConfigs {
+        release {
+            storeFile file("release.jks")
+            storePassword System.getenv("KSTOREPWD")
+            keyAlias "release"
+            keyPassword System.getenv("KEYPWD")
+        }
+
+    }
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
