@@ -31,7 +31,11 @@ import static com.chen.derek.journal.backend.OfyService.ofy;
  * authentication! If this app is deployed, anyone can access this endpoint! If
  * you'd like to add authentication, take a look at the documentation.
  */
-@Api(name = "messaging", version = "v1", namespace = @ApiNamespace(ownerDomain = "backend.journal.derek.chen.com", ownerName = "backend.journal.derek.chen.com", packagePath = ""))
+@Api(name = "messaging", version = "v1", namespace = @ApiNamespace(
+        ownerDomain = "backend.journal.derek.chen.com",
+        ownerName = "backend.journal.derek.chen.com",
+        packagePath = ""))
+//Project Number: 937717765367
 public class MessagingEndpoint {
     private static final Logger log = Logger.getLogger(MessagingEndpoint.class.getName());
 
