@@ -5,8 +5,10 @@
 
     </style>
     <!-- Base application theme. -->
-    <style name="AppThemeApp" parent="Theme.AppCompat.Light.DarkActionBar">
 
+    <style name="AppTheme" parent="android:Theme.Material">
+    </style>
+    <style name="AppThemeLight" parent="android:Theme.Material.Light">
     </style>
 
     <!-- extend one of the Theme.AppCompat themes -->
@@ -19,12 +21,5 @@
         -->
     </style>
 
-    <!-- your theme inherits from the material theme -->
-    <!-- disabled to Compatible with os earlier than api 20
-    <style name="AppTheme" parent="android:Theme.Material">
-    </style>
-    <style name="AppThemeLight" parent="android:Theme.Material.Light">
-    </style>
-    -->
 
 </resources>
