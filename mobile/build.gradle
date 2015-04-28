@@ -41,12 +41,16 @@ dependencies {
     debugWearApp project(path: ':wear', configuration: 'debug')
     releaseWearApp project(path: ':wear', configuration: 'release')
 
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.google.android.gms:play-services:7.0.0'
-    compile 'com.facebook.android:facebook-android-sdk:4.0.0'
     compile project(path: ':backend', configuration: 'android-endpoints')
+//    CircleImage Library (which is used in the header view for the profile picture)
+    
 
 //    compile 'com.android.support:appcompat-v7:21.0.+'
-    compile 'com.android.support:cardview-v7:21.0.+'
-    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.android.support:appcompat-v7:22.1.0'
+    compile 'com.google.android.gms:play-services:7.0.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.0.0'
+    compile 'de.hdodenhof:circleimageview:1.2.1'
+    compile 'com.android.support:cardview-v7:22.1.0'
+    compile 'com.android.support:recyclerview-v7:22.1.0'
+    compile 'com.android.support:support-v4:22.1.0'
 }
