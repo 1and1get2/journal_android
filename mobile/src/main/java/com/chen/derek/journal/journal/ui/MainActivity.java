@@ -1,12 +1,14 @@
 package com.chen.derek.journal.journal.ui;
 
 
+import android.app.FragmentTransaction;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.app.Fragment;
+//import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.chen.derek.journal.backend.registration.Registration;
@@ -35,6 +39,7 @@ import java.util.logging.Logger;
 
 public class MainActivity extends SampleActivityBase
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+    private Fragment mNavigationDrawerFragment;
 
 
     @Override
@@ -42,8 +47,26 @@ public class MainActivity extends SampleActivityBase
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
+/*        final Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);*/
+
+/*        DrawerLayout dl = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ListView lv = (ListView) findViewById(R.id.main_navigation_drawer);
+        lv.setAdapter(new ArrayAdapter<String>(
+                this,
+                R.layout.drawer_list_item,
+                new String[]{
+                        "a", "title 2"
+                }
+        ));*/
+
+
+
+//        Fragment f = getSupportFragmentManager().findFragmentById(R.id.main_navigation_drawer);
+
+//        mNavigationDrawerFragment = f;
+//                (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.main_navigation_drawer);
+
 
 //      initialize Facebook SDK
 //        FacebookSdk.sdkInitialize(getApplicationContext());
@@ -56,6 +79,14 @@ public class MainActivity extends SampleActivityBase
         } else {
             // Implement this feature without material design
         }
+
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        Fragment ndf = NavigationDrawerFragment.newInstance("11","222");
+
+        transaction.replace(R.id.main_navigation_drawer, ndf);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
     }
 
     @Override
@@ -63,7 +94,7 @@ public class MainActivity extends SampleActivityBase
         Log.d(TAG, "onNavigationDrawerItemSelected: " + position);
 
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = getFragmentManager();
 //        TODO find the correct fragment to attach
 //        fragmentManager.beginTransaction()
 //                .replace(R.id.container, null)
